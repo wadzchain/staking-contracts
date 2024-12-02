@@ -1,4 +1,5 @@
-pragma solidity ^0.8.7;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.23;
 
 import "@openzeppelin/contracts/utils/Address.sol";
 
@@ -131,7 +132,8 @@ contract Staking {
             _deleteFromValidators(msg.sender);
         }
 
-        payable(msg.sender).transfer(amount);
+        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        require(success);
         emit Unstaked(msg.sender, amount);
     }
 

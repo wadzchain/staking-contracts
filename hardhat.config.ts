@@ -10,7 +10,7 @@ require("dotenv").config();
 const privateKeys = (process.env.PRIVATE_KEYS ?? "0000000000000000000000000000000000000000000000000000000000000000").split(",")
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.7",
+  solidity: "0.8.23",
   networks: {
     wadztestnet: {
       url: process.env.JSONRPC_URL ?? "http://localhost:8545",
